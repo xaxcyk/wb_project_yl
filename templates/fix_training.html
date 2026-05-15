@@ -1,0 +1,41 @@
+{% extends "base.html" %}
+
+{% block title %}Исправление ошибки{% endblock %}
+
+{% block body %}
+<div class="container mt-5">
+    <div class="row justify-content-center">
+        <div class="col-md-8">
+            <div class="card shadow-sm border-orange">
+                <div class="card-header bg-white border-bottom">
+                    <h3 class="mb-0 text-orange text-center">Исправление ошибки</h3>
+                </div>
+                <div class="card-body text-center">
+                    <div class="display-1 fw-bold mb-4">
+                        {{ word.word|replace(word.correct_letter, '_') }}
+                    </div>
+                    <p class="text-muted">Правило: {{ word.rule }}</p>
+                    <form method="post" class="mb-4">
+                        <div class="row justify-content-center">
+                            <div class="col-auto">
+                                <label for="letterInput" class="form-label fs-5">Вставьте пропущенную букву:</label>
+                                <input type="text" name="letter" id="letterInput"
+                                       class="form-control form-control-lg text-center"
+                                       maxlength="1" autocomplete="off" style="width: 100px; margin: 0 auto;"
+                                       value="{{ user_letter }}" required>
+                            </div>
+                            <div class="col-auto align-self-end">
+                                <button type="submit" class="btn btn-orange btn-lg">Проверить</button>
+                            </div>
+                        </div>
+                    </form>
+                    <p class="mt-4 text-muted">Задание {{ index + 1 }} из {{ total }}</p>
+                </div>
+            </div>
+            <div class="text-center mt-4">
+                <a href="{{ url_for('profile') }}" class="btn btn-outline-secondary">Вернуться в профиль</a>
+            </div>
+        </div>
+    </div>
+</div>
+{% endblock %}

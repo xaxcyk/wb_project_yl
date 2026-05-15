@@ -1,0 +1,53 @@
+{% extends "base.html" %}
+
+{% block title %}Главная{% endblock %}
+
+{% block body %}
+<div class="container py-5">
+  <div class="p-5 mb-4 bg-soft-orage rounded-3 text-center">
+    <div class="container-fluid py-5">
+      <h1 class="display-5 fw-bold text-soft-orange">Подготовка к ЕГЭ по русскому языку</h1>
+      <p class="col-md-8 fs-4 mx-auto text-secondary">Выберите раздел для тренировки орфографии</p>
+    </div>
+  </div>
+
+  <div class="row g-4 py-5 row-cols-1 row-cols-sm-2">
+    <div class="col">
+      <div class="card h-100 shadow-sm border-soft-orange">
+        <div class="card-body text-center">
+          <h3 class="card-title text-soft-orange">Категории орфограмм</h3>
+          <p class="card-text text-secondary">Выберите тему для отработки: корни, приставки, суффиксы и другие.</p>
+          <a href="{{ url_for('categories') }}" class="btn btn-soft-orange btn-lg w-75">Выбрать</a>
+        </div>
+      </div>
+    </div>
+    <div class="col">
+      <div class="card h-100 shadow-sm border-soft-orange">
+        <div class="card-body text-center">
+          <h3 class="card-title text-soft-orange">Все слова</h3>
+          <p class="card-text text-secondary">Просмотр всех слов с пропущенными буквами и правилами.</p>
+          <a href="{{ url_for('words') }}" class="btn btn-soft-orange btn-lg w-75">Смотреть</a>
+        </div>
+      </div>
+    </div>
+    <div class="col">
+      <div class="card h-100 shadow-sm border-soft-orange">
+        <div class="card-body text-center">
+          <h3 class="card-title text-soft-orange">Правила</h3>
+          <p class="card-text text-secondary">Изучайте правила орфографии с примерами.</p>
+          <a href="{{ url_for('rules') }}" class="btn btn-soft-orange btn-lg w-75">Читать</a>
+        </div>
+      </div>
+    </div>
+    <div class="col">
+      <div class="card h-100 shadow-sm border-soft-orange">
+        <div class="card-body text-center">
+          <h3 class="card-title text-soft-orange">Тренировка ЕГЭ</h3>
+          <p class="card-text text-secondary">Интерактивный тренажёр: вставьте пропущенную букву.</p>
+          <a href="{{ url_for('exam') }}" class="btn btn-soft-orange btn-lg w-75">Начать</a>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+{% endblock %}

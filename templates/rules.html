@@ -1,0 +1,124 @@
+{% extends "base.html" %}
+
+{% block title %}Правила орфографии{% endblock %}
+
+{% block body %}
+<div class="container px-4 py-5" id="hanging-icons">
+    <h2 class="pb-2 border-bottom border-soft-orange text-soft-orange">Правила орфографии</h2>
+    <div class="row g-4 py-5 row-cols-1 row-cols-lg-2">
+
+        <div class="col d-flex align-items-start">
+            <div class="icon-square text-soft-orange flex-shrink-0 me-3">
+                <i class="bi bi-tree-fill fs-1"></i>
+            </div>
+            <div>
+                <h3 class="fs-2 text-soft-orange">Корни с чередованием</h3>
+                <p class="text-secondary">В корнях с чередованием выбор гласной зависит от суффикса -а-, от последующей согласной или от значения. Например: <strong>кас/кос</strong> (касаться – коснуться), <strong>лаг/лож</strong> (слагать – сложить), <strong>раст/ращ/рос</strong> (растение – выращенный – вырос), <strong>бер/бир</strong> (собирать – соберу) и др.</p>
+                <a href="{{ url_for('training', category='roots') }}" class="btn btn-outline-soft-orange mt-2">Тренироваться</a>
+            </div>
+        </div>
+
+        <div class="col d-flex align-items-start">
+            <div class="icon-square text-soft-orange flex-shrink-0 me-3">
+                <i class="bi bi-shield-plus fs-1"></i>
+            </div>
+            <div>
+                <h3 class="fs-2 text-soft-orange">Приставки ПРЕ- и ПРИ-</h3>
+                <p class="text-secondary">ПРИ- пишется в значениях: приближение, присоединение, неполнота действия, близость. ПРЕ- = «очень» или близка к «пере-». Примеры: <strong>прилететь</strong> (приближение), <strong>прекрасный</strong> (очень красивый).</p>
+                <a href="{{ url_for('training', category='prefixes') }}" class="btn btn-outline-soft-orange mt-2">Тренироваться</a>
+            </div>
+        </div>
+
+        <div class="col d-flex align-items-start">
+            <div class="icon-square text-soft-orange flex-shrink-0 me-3">
+                <i class="bi bi-person-workspace fs-1"></i>
+            </div>
+            <div>
+                <h3 class="fs-2 text-soft-orange">Суффиксы</h3>
+                <p class="text-secondary">Выбор суффикса зависит от части речи, спряжения, ударения. Например: <strong>-чик-/-щик-</strong> (после д, т, з, с, ж – чик; иначе – щик), <strong>-ек-/-ик-</strong> (при склонении гласный выпадает – ек, иначе – ик), <strong>-ова-/-ева-/-ыва-/-ива-</strong> (если в 1-м лице ед.ч. глагол на -ую/-юю, то -ова-/-ева-).</p>
+                <a href="{{ url_for('training', category='suffixes') }}" class="btn btn-outline-soft-orange mt-2">Тренироваться</a>
+            </div>
+        </div>
+
+        <div class="col d-flex align-items-start">
+            <div class="icon-square text-soft-orange flex-shrink-0 me-3">
+                <i class="bi bi-person-arms-up fs-1"></i>
+            </div>
+            <div>
+                <h3 class="fs-2 text-soft-orange">Окончания глаголов и суффиксы причастий</h3>
+                <p class="text-secondary">Спряжение глаголов: II спр. (все на -ить, кроме брить, стелить, и 11 глаголов-исключений) – в окончаниях И, А, Я. I спр. – Е, У, Ю. В причастиях настоящего времени: -ущ-/-ющ- от I спр., -ащ-/-ящ- от II спр.</p>
+                <a href="{{ url_for('training', category='verb_ends') }}" class="btn btn-outline-soft-orange mt-2">Тренироваться</a>
+            </div>
+        </div>
+
+        <div class="col d-flex align-items-start">
+            <div class="icon-square text-soft-orange flex-shrink-0 me-3">
+                <i class="bi bi-exclamation-triangle fs-1"></i>
+            </div>
+            <div>
+                <h3 class="fs-2 text-soft-orange">Правописание НЕ с разными частями речи</h3>
+                <p class="text-secondary">НЕ с глаголами пишется раздельно (кроме слов, которые без НЕ не употребляются). С причастиями: слитно, если нет зависимых слов и противопоставления; раздельно – если есть зависимые слова или противопоставление. С существительными, прилагательными, наречиями на -о: слитно, если можно заменить синонимом без НЕ, или слово без НЕ не употребляется.</p>
+                <a href="{{ url_for('training', category='ne') }}" class="btn btn-outline-soft-orange mt-2">Тренироваться</a>
+            </div>
+        </div>
+
+        <div class="col d-flex align-items-start">
+            <div class="icon-square text-soft-orange flex-shrink-0 me-3">
+                <i class="bi bi-text-paragraph fs-1"></i>
+            </div>
+            <div>
+                <h3 class="fs-2 text-soft-orange">Слитное, раздельное, дефисное написание</h3>
+                <p class="text-secondary">Наречия, образованные от существительных с предлогами, пишутся слитно (вдаль), раздельно, если есть пояснительное слово (в даль моря). Местоимения с приставкой кое- и суффиксами -то, -либо, -нибудь пишутся через дефис. Наречия по-новому, по-русски – через дефис.</p>
+                <a href="{{ url_for('training', category='hyphen') }}" class="btn btn-outline-soft-orange mt-2">Тренироваться</a>
+            </div>
+        </div>
+
+        <div class="col d-flex align-items-start">
+            <div class="icon-square text-soft-orange flex-shrink-0 me-3">
+                <i class="bi bi-type-bold fs-1"></i>
+            </div>
+            <div>
+                <h3 class="fs-2 text-soft-orange">Ь после шипящих</h3>
+                <p class="text-secondary">Ь пишется в глаголах (пишешь, беречь), в существительных 3-го склонения (ночь, рожь), в наречиях (настежь, прочь). Не пишется в существительных мужского рода (врач, нож), в кратких прилагательных (горяч, могуч).</p>
+                <a href="{{ url_for('training', category='soft_sign') }}" class="btn btn-outline-soft-orange mt-2">Тренироваться</a>
+            </div>
+        </div>
+
+        <div class="col d-flex align-items-start">
+            <div class="icon-square text-soft-orange flex-shrink-0 me-3">
+                <i class="bi bi-123 fs-1"></i>
+            </div>
+            <div>
+                <h3 class="fs-2 text-soft-orange">Ы/И после Ц</h3>
+                <p class="text-secondary">В корне слова после Ц пишется И (цирк, цитата), кроме исключений: цыган, цыпленок, цыц, на цыпочках. В суффиксах и окончаниях – Ы (огурцы, сестрицын).</p>
+                <a href="{{ url_for('training', category='ci') }}" class="btn btn-outline-soft-orange mt-2">Тренироваться</a>
+            </div>
+        </div>
+
+        <div class="col d-flex align-items-start">
+            <div class="icon-square text-soft-orange flex-shrink-0 me-3">
+                <i class="bi bi-box-arrow-in-right fs-1"></i>
+            </div>
+            <div>
+                <h3 class="fs-2 text-soft-orange">Гласные в суффиксах причастий прошедшего времени</h3>
+                <p class="text-secondary">Перед -нн- в страдательных причастиях прошедшего времени пишется та же гласная, что и в инфинитиве: увидеть – увиденный, выкачать – выкачанный, замесить – замешенный.</p>
+                <a href="{{ url_for('training', category='participle_suf') }}" class="btn btn-outline-soft-orange mt-2">Тренироваться</a>
+            </div>
+        </div>
+
+        <div class="col d-flex align-items-start">
+            <div class="icon-square text-soft-orange flex-shrink-0 me-3">
+                <i class="bi bi-arrow-repeat fs-1"></i>
+            </div>
+            <div>
+                <h3 class="fs-2 text-soft-orange">Гласные в приставках раз-/роз-</h3>
+                <p class="text-secondary">Под ударением пишется О (розыск, роспись), без ударения – А (разыскать, расписать).</p>
+                <a href="{{ url_for('training', category='raz_roz') }}" class="btn btn-outline-soft-orange mt-2">Тренироваться</a>
+            </div>
+        </div>
+    </div>
+    <div class="text-center mt-4">
+        <a href="{{ url_for('index') }}" class="btn btn-secondary">На главную</a>
+    </div>
+</div>
+{% endblock %}

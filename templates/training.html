@@ -1,0 +1,44 @@
+{% extends "base.html" %}
+
+{% block title %}Тренировка{% endblock %}
+
+{% block body %}
+<div class="container mt-5">
+    <div class="row justify-content-center">
+        <div class="col-md-8">
+            <div class="card shadow-sm border-soft-orange">
+                <div class="card-header bg-soft-orange bg-opacity-10 border-bottom border-soft-orange">
+                    <h3 class="mb-0 text-soft-orange text-center">Тренировка: {{ category }}</h3>
+                </div>
+                <div class="card-body text-center">
+                    <div class="display-1 fw-bold mb-4">
+                        {{ word.word|replace(word.correct_letter, '_') }}
+                    </div>
+                    <form method="post" class="mb-4">
+                        <div class="row justify-content-center">
+                            <div class="col-auto">
+                                <label for="letterInput" class="form-label fs-5 text-secondary">Вставьте пропущенную букву:</label>
+                                <input type="text" name="letter" id="letterInput"
+                                       class="form-control form-control-lg text-center"
+                                       maxlength="1" autocomplete="off" style="width: 100px; margin: 0 auto;"
+                                       value="{{ user_letter }}" required>
+                            </div>
+                            <div class="col-auto align-self-end">
+                                <button type="submit" class="btn btn-soft-orange btn-lg">Проверить</button>
+                            </div>
+                        </div>
+                    </form>
+                    <div class="mt-3">
+                        <a href="{{ url_for('training', category=category_key, index=index+1) }}"
+                           class="btn btn-secondary btn-lg">Следующее слово</a>
+                    </div>
+                    <p class="mt-4 text-muted">Слово {{ index + 1 }} из {{ total }}</p>
+                </div>
+            </div>
+            <div class="text-center mt-4">
+                <a href="{{ url_for('index') }}" class="btn btn-outline-secondary">На главную</a>
+            </div>
+        </div>
+    </div>
+</div>
+{% endblock %}

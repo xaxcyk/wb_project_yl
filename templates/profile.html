@@ -1,0 +1,150 @@
+{% extends "base.html" %}
+
+{% block title %}Личный кабинет{% endblock %}
+
+{% block body %}
+<div class="container mt-5">
+    <div class="row justify-content-center">
+        <div class="col-md-10">
+            <!-- Карточка пользователя -->
+            <div class="card shadow-sm border-soft-orange mb-4">
+                <div class="card-header bg-soft-orange bg-opacity-10 border-bottom border-soft-orange">
+                    <h3 class="mb-0 text-soft-orange">Личный кабинет</h3>
+                </div>
+                <div class="card-body">
+                    <p class="fs-5">Здравствуйте, <strong>{{ current_user.username }}</strong>!</p>
+                    <p class="text-secondary">Ваша электронная почта: {{ current_user.email }}</p>
+                </div>
+            </div>
+
+            <!-- Общая статистика -->
+            <div class="card shadow-sm border-soft-orange mb-4">
+                <div class="card-header bg-soft-orange bg-opacity-10 border-bottom border-soft-orange">
+                    <h4 class="mb-0 text-soft-orange">Общий прогресс</h4>
+                </div>
+                <div class="card-body text-center">
+                    <div class="row align-items-center">
+                        <div class="col-md-4">
+                            <div class="progress-circle" data-percent="{{ overall_percent }}">
+                                <svg width="120" height="120" viewBox="0 0 120 120">
+                                    <circle cx="60" cy="60" r="54" fill="none" stroke="#E8E0D5" stroke-width="8"/>
+                                    <circle cx="60" cy="60" r="54" fill="none" stroke="#FFB366" stroke-width="8"
+                                            stroke-dasharray="{{ (overall_percent / 100) * 339.3 }} 339.3"
+                                            transform="rotate(-90 60 60)"/>
+                                </svg>
+                                <div class="percent-text">{{ overall_percent }}%</div>
+                            </div>
+                        </div>
+                        <div class="col-md-8">
+                            <div class="row text-center">
+                                <div class="col-4">
+                                    <div class="fs-2 fw-bold text-success">{{ total_correct }}</div>
+                                    <small class="text-secondary">Правильно</small>
+                                </div>
+                                <div class="col-4">
+                                    <div class="fs-2 fw-bold text-danger">{{ total_mistakes }}</div>
+                                    <small class="text-secondary">Ошибок</small>
+                                </div>
+                                <div class="col-4">
+                                    <div class="fs-2 fw-bold text-soft-orange">{{ total_words }}</div>
+                                    <small class="text-secondary">Всего слов</small>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Статистика по категориям -->
+            <div class="card shadow-sm border-soft-orange mb-4">
+                <div class="card-header bg-soft-orange bg-opacity-10 border-bottom border-soft-orange">
+                    <h4 class="mb-0 text-soft-orange">Прогресс по категориям</h4>
+                </div>
+                <div class="card-body">
+                    {% for category, stat in category_stats.items() %}
+                        <div class="mb-3">
+                            <div class="d-flex justify-content-between align-items-center mb-1">
+                                <span class="fw-bold">{{ category }}</span>
+                                <span class="text-secondary">{{ stat.correct }} / {{ stat.total }} ({{ stat.percent }}%)</span>
+                            </div>
+                            <div class="progress" style="height: 10px; border-radius: 10px;">
+                                <div class="progress-bar bg-soft-orange" role="progressbar"
+                                     style="width: {{ stat.percent }}%; border-radius: 10px;"
+                                     aria-valuenow="{{ stat.percent }}" aria-valuemin="0" aria-valuemax="100"></div>
+                            </div>
+                        </div>
+                    {% endfor %}
+                </div>
+            </div>
+
+            <!-- Список ошибок -->
+            <div class="card shadow-sm border-soft-orange">
+                <div class="card-header bg-soft-orange bg-opacity-10 border-bottom border-soft-orange">
+                    <h4 class="mb-0 text-soft-orange">Ваши ошибки</h4>
+                </div>
+                <div class="card-body">
+                    {% if grouped %}
+                        {% for category, mistakes in grouped.items() %}
+                            <div class="card mt-3">
+                                <div class="card-header bg-soft-orange text-white">
+                                    <strong>{{ category }}</strong>
+                                </div>
+                                <ul class="list-group list-group-flush">
+                                    {% for m in mistakes %}
+                                        <li class="list-group-item d-flex justify-content-between align-items-center">
+                                            <div>
+                                                <strong>{{ m.word.word }}</strong><br>
+                                                <small class="text-secondary">Правильная буква: {{ m.word.correct_letter }}</small><br>
+                                                <small class="text-secondary">Правило: {{ m.word.rule }}</small>
+                                            </div>
+                                            <a href="{{ url_for('fix_mistake', mistake_id=m.id) }}"
+                                               class="btn btn-sm btn-outline-soft-orange">Исправить</a>
+                                        </li>
+                                    {% endfor %}
+                                </ul>
+                            </div>
+                        {% endfor %}
+                    {% else %}
+                        <div class="alert alert-success text-center">
+                            🎉 Отлично! У вас пока нет ошибок. Продолжайте в том же духе!
+                        </div>
+                    {% endif %}
+                </div>
+            </div>
+
+            <div class="text-center mt-4">
+                <a href="{{ url_for('index') }}" class="btn btn-secondary">На главную</a>
+            </div>
+        </div>
+    </div>
+</div>
+
+<style>
+    .progress-circle {
+        position: relative;
+        display: inline-block;
+    }
+    .progress-circle svg {
+        transform: rotate(-90deg);
+    }
+    .progress-circle .percent-text {
+        position: absolute;
+        top: 50%;
+        left: 50%;
+        transform: translate(-50%, -50%);
+        font-size: 24px;
+        font-weight: bold;
+        color: #FFB366;
+    }
+    .progress {
+        background-color: #F0E8DD;
+    }
+    .progress-bar {
+        transition: width 0.5s ease;
+    }
+    .badge {
+        font-size: 12px;
+        padding: 5px 10px;
+    }
+</style>
+{% endblock %}

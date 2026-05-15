@@ -1,0 +1,167 @@
+/* ========================================
+   ЕГЭ Орфо — нежная оранжево-серая гамма
+   ======================================== */
+
+@import url('https://fonts.googleapis.com/css2?family=Inter:opsz,wght@14..32,300;14..32,400;14..32,500;14..32,600;14..32,700&display=swap');
+
+:root {
+    --soft-orange: #FFB366;
+    --soft-orange-dark: #E6954A;
+    --soft-orange-light: #FFD9A3;
+    --soft-orange-bg: #FFF5E6;
+    
+    --bg-gray-light: #F8F9FA;
+    --bg-card: #FFFFFF;
+    --text-dark: #4A5568;
+    --text-secondary: #718096;
+    --border-light: #E2E8F0;
+    
+    --shadow-sm: 0 4px 12px rgba(0, 0, 0, 0.03);
+    --shadow-md: 0 8px 24px rgba(0, 0, 0, 0.05);
+    --shadow-lg: 0 12px 32px rgba(0, 0, 0, 0.08);
+    --shadow-soft-orange: 0 4px 12px rgba(255, 179, 102, 0.2);
+}
+
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    background: linear-gradient(145deg, var(--bg-gray-light) 0%, #F1F5F9 100%);
+    color: var(--text-dark);
+    font-family: 'Inter', -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
+    font-weight: 400;
+    line-height: 1.5;
+    min-height: 100vh;
+}
+
+.toast-container {
+    position: fixed;
+    top: 20px;
+    left: 50%;
+    transform: translateX(-50%);
+    z-index: 1100;
+    pointer-events: none;
+    width: auto;
+    max-width: 90%;
+}
+
+.toast-container .toast {
+    pointer-events: auto;
+    background: var(--text-dark);
+    color: white;
+    border-radius: 16px;
+    box-shadow: var(--shadow-lg);
+    margin-bottom: 10px;
+    backdrop-filter: blur(8px);
+    background: rgba(74, 85, 104, 0.95);
+}
+
+.toast-container .toast.text-bg-success {
+    background: linear-gradient(135deg, #86C8A0 0%, #5BAE7A 100%);
+}
+
+.toast-container .toast.text-bg-danger {
+    background: linear-gradient(135deg, #E8A0A0 0%, #D47A7A 100%);
+}
+
+.text-soft-orange {
+    color: var(--soft-orange) !important;
+}
+
+.border-soft-orange {
+    border-color: var(--soft-orange) !important;
+}
+
+.bg-soft-orange {
+    background-color: var(--soft-orange) !important;
+}
+
+.bg-opacity-10 {
+    background-color: rgba(255, 179, 102, 0.1) !important;
+}
+
+.btn-soft-orange {
+    background: linear-gradient(135deg, var(--soft-orange) 0%, var(--soft-orange-dark) 100%);
+    border: none;
+    color: white;
+    box-shadow: var(--shadow-soft-orange);
+    transition: all 0.2s ease;
+}
+
+.btn-soft-orange:hover {
+    background: linear-gradient(135deg, var(--soft-orange-dark) 0%, #D4843A 100%);
+    transform: translateY(-2px);
+    box-shadow: 0 6px 16px rgba(255, 179, 102, 0.3);
+    color: white;
+}
+
+.btn-outline-soft-orange {
+    background: transparent;
+    border: 2px solid var(--soft-orange);
+    color: var(--soft-orange);
+    transition: all 0.2s ease;
+}
+
+.btn-outline-soft-orange:hover {
+    background: var(--soft-orange);
+    color: white;
+    transform: translateY(-2px);
+}
+
+.btn-secondary {
+    background: linear-gradient(135deg, #CBD5E0 0%, #A0AEC0 100%);
+    border: none;
+    color: var(--text-dark);
+}
+
+.btn-secondary:hover {
+    background: linear-gradient(135deg, #A0AEC0 0%, #8794AB 100%);
+    transform: translateY(-2px);
+}
+
+.card {
+    background: var(--bg-card);
+    border: 1px solid var(--border-light);
+    border-radius: 24px;
+    transition: all 0.2s ease;
+    box-shadow: var(--shadow-sm);
+}
+
+.card:hover {
+    transform: translateY(-4px);
+    box-shadow: var(--shadow-md);
+    border-color: var(--soft-orange);
+}
+
+.card-header {
+    background: transparent;
+    border-bottom: 1px solid var(--border-light);
+    padding: 1.25rem 1.5rem;
+    font-weight: 600;
+}
+
+.form-control {
+    border-radius: 16px;
+    border: 1px solid var(--border-light);
+    padding: 0.75rem 1rem;
+    transition: all 0.2s ease;
+}
+
+.form-control:focus {
+    border-color: var(--soft-orange);
+    box-shadow: 0 0 0 4px rgba(255, 179, 102, 0.1);
+    outline: none;
+}
+
+@media (max-width: 768px) {
+    h1 { font-size: 1.8rem; }
+    .card-body { padding: 1.25rem; }
+    .btn { padding: 0.5rem 1.2rem; font-size: 0.85rem; }
+}
+
+@media (max-width: 576px) {
+    .container { padding-left: 1rem; padding-right: 1rem; }
+}
