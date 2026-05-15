@@ -1,0 +1,61 @@
+{% extends "base.html" %}
+
+{% block title %}Регистрация{% endblock %}
+
+{% block body %}
+<div class="row justify-content-center">
+    <div class="col-md-6">
+        <div class="card shadow-sm border-soft-orange">
+            <div class="card-header bg-soft-orange bg-opacity-10 border-bottom border-soft-orange">
+                <h3 class="mb-0 text-soft-orange text-center">Регистрация</h3>
+            </div>
+            <div class="card-body">
+                <form action="" method="post">
+                    {{ form.hidden_tag() }}
+                    <div class="mb-3">
+                        {{ form.username.label(class="form-label text-secondary") }}
+                        {{ form.username(class="form-control") }}
+                        {% for error in form.username.errors %}
+                            <div class="alert alert-danger mt-2">{{ error }}</div>
+                        {% endfor %}
+                    </div>
+                    <div class="mb-3">
+                        {{ form.email.label(class="form-label text-secondary") }}
+                        {{ form.email(class="form-control", type="email") }}
+                        {% for error in form.email.errors %}
+                            <div class="alert alert-danger mt-2">
+                                {{ error }}
+                                <a href="{{ url_for('login') }}" class="alert-link">Войти</a>
+                            </div>
+                        {% endfor %}
+                    </div>
+                    <div class="mb-3">
+                        {{ form.password.label(class="form-label text-secondary") }}
+                        {{ form.password(class="form-control", type="password") }}
+                        {% for error in form.password.errors %}
+                            <div class="alert alert-danger mt-2">{{ error }}</div>
+                        {% endfor %}
+                    </div>
+                    <div class="mb-3">
+                        {{ form.password_again.label(class="form-label text-secondary") }}
+                        {{ form.password_again(class="form-control", type="password") }}
+                        {% for error in form.password_again.errors %}
+                            <div class="alert alert-danger mt-2">{{ error }}</div>
+                        {% endfor %}
+                    </div>
+                    <div class="mb-3 form-check">
+                        {{ form.remember_me(class="form-check-input") }}
+                        {{ form.remember_me.label(class="form-check-label text-secondary") }}
+                    </div>
+                    <div class="d-grid gap-2">
+                        {{ form.submit(class="btn btn-soft-orange btn-lg") }}
+                    </div>
+                </form>
+                <p class="mt-3 text-center text-secondary">
+                    Уже есть аккаунт? <a href="{{ url_for('login') }}" class="text-soft-orange">Войдите</a>
+                </p>
+            </div>
+        </div>
+    </div>
+</div>
+{% endblock %}

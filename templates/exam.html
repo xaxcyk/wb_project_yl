@@ -1,0 +1,33 @@
+{% extends "base.html" %}
+
+{% block title %}Экзамен{% endblock %}
+
+{% block body %}
+<div class="container mt-5">
+    <div class="row justify-content-center">
+        <div class="col-md-8">
+            <div class="card shadow-sm border-soft-orange">
+                <div class="card-header bg-soft-orange bg-opacity-10 border-bottom border-soft-orange">
+                    <h3 class="mb-0 text-soft-orange text-center">Тренировка в формате ЕГЭ</h3>
+                </div>
+                <div class="card-body text-center">
+                    <i class="bi bi-clock-history fs-1 text-soft-orange mb-3 d-block"></i>
+                    <p class="lead text-secondary">Здесь будет специальный экзаменационный режим:</p>
+                    <ul class="text-start text-secondary d-inline-block">
+                        <li>Случайные слова из всех категорий</li>
+                        <li>Ограничение по времени</li>
+                        <li>Подсчёт баллов</li>
+                        <li>Результат в конце</li>
+                    </ul>
+                    <div class="alert alert-warning mt-3">
+                        ⏳ Режим находится в разработке. Скоро он станет доступен!
+                    </div>
+                    <div class="mt-4">
+                        <a href="{{ url_for('index') }}" class="btn btn-secondary">На главную</a>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+{% endblock %}

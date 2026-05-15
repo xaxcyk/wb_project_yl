@@ -1,0 +1,145 @@
+{% extends "base.html" %}
+
+{% block title %}Категории орфограмм{% endblock %}
+
+{% block body %}
+<div class="container px-4 py-5" id="icon-grid">
+    <h2 class="pb-2 border-bottom border-soft-orange text-soft-orange">Категории орфограмм</h2>
+    <div class="row row-cols-1 row-cols-sm-2 row-cols-md-3 row-cols-lg-4 g-4 py-5">
+
+        <div class="col">
+            <div class="card h-100 shadow-sm border-soft-orange rounded-4">
+                <div class="card-body d-flex flex-column align-items-start">
+                    <i class="bi bi-tree-fill text-soft-orange fs-1 mb-3"></i>
+                    <h3 class="fw-bold mb-2 fs-4 text-soft-orange">Корни с чередованием</h3>
+                    <div class="mt-auto w-100">
+                        <a href="{{ url_for('training', category='roots') }}" class="btn btn-soft-orange w-100 mb-2">Тренироваться</a>
+                        <a href="{{ url_for('rules') }}#roots" class="btn btn-outline-soft-orange w-100">Правило</a>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <div class="col">
+            <div class="card h-100 shadow-sm border-soft-orange rounded-4">
+                <div class="card-body d-flex flex-column align-items-start">
+                    <i class="bi bi-shield-plus text-soft-orange fs-1 mb-3"></i>
+                    <h3 class="fw-bold mb-2 fs-4 text-soft-orange">Приставки ПРЕ- и ПРИ-</h3>
+                    <div class="mt-auto w-100">
+                        <a href="{{ url_for('training', category='prefixes') }}" class="btn btn-soft-orange w-100 mb-2">Тренироваться</a>
+                        <a href="{{ url_for('rules') }}#prefixes" class="btn btn-outline-soft-orange w-100">Правило</a>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <div class="col">
+            <div class="card h-100 shadow-sm border-soft-orange rounded-4">
+                <div class="card-body d-flex flex-column align-items-start">
+                    <i class="bi bi-person-workspace text-soft-orange fs-1 mb-3"></i>
+                    <h3 class="fw-bold mb-2 fs-4 text-soft-orange">Суффиксы</h3>
+                    <div class="mt-auto w-100">
+                        <a href="{{ url_for('training', category='suffixes') }}" class="btn btn-soft-orange w-100 mb-2">Тренироваться</a>
+                        <a href="{{ url_for('rules') }}#suffixes" class="btn btn-outline-soft-orange w-100">Правило</a>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <div class="col">
+            <div class="card h-100 shadow-sm border-soft-orange rounded-4">
+                <div class="card-body d-flex flex-column align-items-start">
+                    <i class="bi bi-person-arms-up text-soft-orange fs-1 mb-3"></i>
+                    <h3 class="fw-bold mb-2 fs-4 text-soft-orange">Окончания глаголов и суффиксы причастий</h3>
+                    <div class="mt-auto w-100">
+                        <a href="{{ url_for('training', category='verb_ends') }}" class="btn btn-soft-orange w-100 mb-2">Тренироваться</a>
+                        <a href="{{ url_for('rules') }}#verb_ends" class="btn btn-outline-soft-orange w-100">Правило</a>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <div class="col">
+            <div class="card h-100 shadow-sm border-soft-orange rounded-4">
+                <div class="card-body d-flex flex-column align-items-start">
+                    <i class="bi bi-exclamation-triangle text-soft-orange fs-1 mb-3"></i>
+                    <h3 class="fw-bold mb-2 fs-4 text-soft-orange">Правописание НЕ с разными частями речи</h3>
+                    <div class="mt-auto w-100">
+                        <a href="{{ url_for('training', category='ne') }}" class="btn btn-soft-orange w-100 mb-2">Тренироваться</a>
+                        <a href="{{ url_for('rules') }}#ne" class="btn btn-outline-soft-orange w-100">Правило</a>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <div class="col">
+            <div class="card h-100 shadow-sm border-soft-orange rounded-4">
+                <div class="card-body d-flex flex-column align-items-start">
+                    <i class="bi bi-text-paragraph text-soft-orange fs-1 mb-3"></i>
+                    <h3 class="fw-bold mb-2 fs-4 text-soft-orange">Слитное, раздельное, дефисное написание</h3>
+                    <div class="mt-auto w-100">
+                        <a href="{{ url_for('training', category='hyphen') }}" class="btn btn-soft-orange w-100 mb-2">Тренироваться</a>
+                        <a href="{{ url_for('rules') }}#hyphen" class="btn btn-outline-soft-orange w-100">Правило</a>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <div class="col">
+            <div class="card h-100 shadow-sm border-soft-orange rounded-4">
+                <div class="card-body d-flex flex-column align-items-start">
+                    <i class="bi bi-type-bold text-soft-orange fs-1 mb-3"></i>
+                    <h3 class="fw-bold mb-2 fs-4 text-soft-orange">Ь после шипящих</h3>
+                    <div class="mt-auto w-100">
+                        <a href="{{ url_for('training', category='soft_sign') }}" class="btn btn-soft-orange w-100 mb-2">Тренироваться</a>
+                        <a href="{{ url_for('rules') }}#soft_sign" class="btn btn-outline-soft-orange w-100">Правило</a>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <div class="col">
+            <div class="card h-100 shadow-sm border-soft-orange rounded-4">
+                <div class="card-body d-flex flex-column align-items-start">
+                    <i class="bi bi-123 text-soft-orange fs-1 mb-3"></i>
+                    <h3 class="fw-bold mb-2 fs-4 text-soft-orange">Ы/И после Ц</h3>
+                    <div class="mt-auto w-100">
+                        <a href="{{ url_for('training', category='ci') }}" class="btn btn-soft-orange w-100 mb-2">Тренироваться</a>
+                        <a href="{{ url_for('rules') }}#ci" class="btn btn-outline-soft-orange w-100">Правило</a>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <div class="col">
+            <div class="card h-100 shadow-sm border-soft-orange rounded-4">
+                <div class="card-body d-flex flex-column align-items-start">
+                    <i class="bi bi-box-arrow-in-right text-soft-orange fs-1 mb-3"></i>
+                    <h3 class="fw-bold mb-2 fs-4 text-soft-orange">Гласные в суффиксах причастий прошедшего времени</h3>
+                    <div class="mt-auto w-100">
+                        <a href="{{ url_for('training', category='participle_suf') }}" class="btn btn-soft-orange w-100 mb-2">Тренироваться</a>
+                        <a href="{{ url_for('rules') }}#participle_suf" class="btn btn-outline-soft-orange w-100">Правило</a>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <div class="col">
+            <div class="card h-100 shadow-sm border-soft-orange rounded-4">
+                <div class="card-body d-flex flex-column align-items-start">
+                    <i class="bi bi-arrow-repeat text-soft-orange fs-1 mb-3"></i>
+                    <h3 class="fw-bold mb-2 fs-4 text-soft-orange">Гласные в приставках раз-/роз-</h3>
+                    <div class="mt-auto w-100">
+                        <a href="{{ url_for('training', category='raz_roz') }}" class="btn btn-soft-orange w-100 mb-2">Тренироваться</a>
+                        <a href="{{ url_for('rules') }}#raz_roz" class="btn btn-outline-soft-orange w-100">Правило</a>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+    </div>
+    <div class="text-center mt-4">
+        <a href="{{ url_for('index') }}" class="btn btn-secondary">На главную</a>
+    </div>
+</div>
+{% endblock %}
